@@ -30,6 +30,26 @@ def decode_qrcode():
             decode_qrcode()
 
 
+def main():
+    while True:
+        try:
+            option = input("Please choose an option:\n"
+                           "[1] Encode data to a QR code \n"
+                           "[2] Decode data from a QR code \n"
+                           "[Q] Quit \n"
+                           ">>")
+            print(" ")
+            if option.lower() == "q" or option.lower() == "quit":
+                break
+            elif int(option) < 1 or int(option) > 2:
+                raise ValueError
+            elif int(option) == 1:
+                create_qrcode()
+            elif int(option) == 2:
+                decode_qrcode()
+        except ValueError:
+            print("Please choose a valid option")
+
+
 if __name__ == '__main__':
-    create_qrcode()
-    decode_qrcode()
+    main()
